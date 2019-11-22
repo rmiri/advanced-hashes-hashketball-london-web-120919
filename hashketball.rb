@@ -273,11 +273,7 @@ newArr = []
 end
 
 def long_name_steals_a_ton?
-  if most_points_stolen == player_with_longest_name
-  return true
-  else
-  return false
-  end
+  most_points_stolen == player_with_longest_name
 end
 
 #   #player_with_longest_name
