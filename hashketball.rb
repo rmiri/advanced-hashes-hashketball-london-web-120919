@@ -1,3 +1,6 @@
+
+require 'pry'
+
 def game_hash
 # rspec spec/hashketball_spec.rb -e game_hash
   game_hash = {
@@ -125,6 +128,7 @@ end
 # end
 
 def num_points_scored(playerName)
+ # binding.pry
 #     knows the number of points scored by each player (FAILED - 1)
 #rspec spec/hashketball_spec.rb -e num_points_scored
 
@@ -154,7 +158,18 @@ game_hash.each { |homeOrAway,value|
       return value[:colors]
       end
   }
+
+  game_hash.each {|homeOrAway, value|
+     value.each {|teamInfo, info|
+  
+       if teamInfo == :colors
+
+         return value[:colours]
+       end
+     }
+  }
 end
+
 def team_names
 newArr = []
   game_hash.each { |homeOrAway,value|
@@ -205,22 +220,10 @@ newArr = []
 end
 
 def most_points_scored
-#     returns Ben Gordon (FAILED - 8)
-newArr = []
-  game_hash.each { |homeOrAway,value|
-    value[:players].each { |pEach|
-      newArr.push(pEach[:points])
-
-    }
-  }
-  game_hash.each { |homeOrAway,value|
-    value[:players].each { |pEach|
-      if newArr.max == pEach[:points]
-        return pEach[:player_name]
-      end
-    }
-  }
-
+  
+  
+  
+# p game_hash[:home][:players].concat(game_hash[:away][:players]).max_by{|k| k[:points] }[:points]
 end
 
 def winning_team
@@ -283,3 +286,5 @@ end
 # super bonus
 #   #long_name_steals_a_ton?
 #     returns true (FAILED - 11)
+
+#binding.pry
