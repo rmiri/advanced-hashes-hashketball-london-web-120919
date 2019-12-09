@@ -1,6 +1,3 @@
-
-require 'pry'
-
 def game_hash
 # rspec spec/hashketball_spec.rb -e game_hash
   game_hash = {
